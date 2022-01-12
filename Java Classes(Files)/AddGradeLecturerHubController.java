@@ -20,7 +20,7 @@ public class AddGradeLecturerHubController extends LecturerHubController{
             //PERFORM MORE VALIDATION
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/coursemanagementdb", "root", "/*YOUR PASSWORD*/");
             PreparedStatement query;
-            query = connection.prepareStatement("select grade from studentlogin where grade is not null and idnumber=?;");
+            query = connection.prepareStatement("select grade from studentlogin where idnumber=?;");
             query.setInt(1, Integer.parseInt(studentID.getText()));
             ResultSet resultSet = query.executeQuery();
             String result = "";
@@ -33,28 +33,55 @@ public class AddGradeLecturerHubController extends LecturerHubController{
                 invalidUsername.setContentText("The id number is not present in the database");
                 invalidUsername.show();
             } else {
-                String gradeRegex="([0-9]|[1-9][0-9]|100)"; //between 0-100
-                //CHECKING IF PARAMETERS MEET REGEX
-                if ((gradeText.getText().trim().matches(gradeRegex))) {
-                    String newGradeString = result.trim() + gradeText.getText().trim() + ",";
-                    //perform edit
-                    PreparedStatement editDb;
-                    editDb = connection.prepareStatement("update studentlogin set grade =? where idnumber=?; ");
-                    editDb.setString(1, newGradeString);
-                    editDb.setInt(2, Integer.parseInt(studentID.getText().trim()));
-                    editDb.executeUpdate();
-                    Alert completeEdit = new Alert(Alert.AlertType.INFORMATION);
-                    completeEdit.setContentText("Student grade added successfully");
-                    completeEdit.show();
+                if(!(result.equals("null"))) {
+                    String gradeRegex = "([0-9]|[1-9][0-9]|100)"; //between 0-100
+                    //CHECKING IF PARAMETERS MEET REGEX
+                    if ((gradeText.getText().trim().matches(gradeRegex))) {
 
-                    studentID.clear();
-                    gradeText.clear();
+                        String newGradeString = result+gradeText.getText().trim() + ",";
+                        //perform edit
+                        PreparedStatement editDb;
+                        editDb = connection.prepareStatement("update studentlogin set grade =? where idnumber=?; ");
+                        editDb.setString(1, newGradeString);
+                        editDb.setInt(2, Integer.parseInt(studentID.getText().trim()));
+                        editDb.executeUpdate();
+                        Alert completeEdit = new Alert(Alert.AlertType.INFORMATION);
+                        completeEdit.setContentText("Student grade added successfully");
+                        completeEdit.show();
 
+                        studentID.clear();
+                        gradeText.clear();
+                    } else {
+                        Alert regexError = new Alert(Alert.AlertType.ERROR);
+                        regexError.setContentText("An invalid parameter has been detected.\nThe grade should be between 0-100");
+                        regexError.show();
+                    }
                 }
-                else {
-                    Alert regexError = new Alert(Alert.AlertType.ERROR);
-                    regexError.setContentText("An invalid parameter has been detected.\nThe grade should be between 0-100");
-                    regexError.show();
+                else{
+                    String gradeRegex = "([0-9]|[1-9][0-9]|100)"; //between 0-100
+                    //CHECKING IF PARAMETERS MEET REGEX
+                    if ((gradeText.getText().trim().matches(gradeRegex))) {
+
+                        String newGradeString = gradeText.getText().trim() + ",";
+                        //perform edit
+                        PreparedStatement editDb;
+                        editDb = connection.prepareStatement("update studentlogin set grade =? where idnumber=?; ");
+                        editDb.setString(1, newGradeString);
+                        editDb.setInt(2, Integer.parseInt(studentID.getText().trim()));
+                        editDb.executeUpdate();
+                        Alert completeEdit = new Alert(Alert.AlertType.INFORMATION);
+                        completeEdit.setContentText("Student grade added successfully");
+                        completeEdit.show();
+
+                        studentID.clear();
+                        gradeText.clear();
+                    } else {
+                        Alert regexError = new Alert(Alert.AlertType.ERROR);
+                        regexError.setContentText("An invalid parameter has been detected.\nThe grade should be between 0-100");
+                        regexError.show();
+                    }
+
+
                 }
 
             }
