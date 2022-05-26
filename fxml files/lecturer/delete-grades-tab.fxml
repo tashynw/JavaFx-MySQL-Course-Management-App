@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursemanagement.DeleteGradesLecturerHubController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="-1.0" prefHeight="1000.0" prefWidth="1900.0">
+         <items>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="207.0" style="-fx-background-color: #ff4d4d;">
+               <children>
+                  <Button layoutX="-3.0" layoutY="187.0" mnemonicParsing="false" onAction="#showStudents" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: #ff4d4d;" text="Show Students">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutY="224.0" mnemonicParsing="false" onAction="#showStudentGrades" prefHeight="37.0" prefWidth="199.0" style="-fx-background-color: #ff4d4d;" text="Show Student Grades">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1.0" layoutY="261.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #ff4d4d;" text="Delete Student">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="4.0" layoutY="298.0" mnemonicParsing="false" onAction="#showPassingStudents" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #ff4d4d;" text="Show Passing Students">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1.0" layoutY="878.0" mnemonicParsing="false" onAction="#logout" prefHeight="50.0" prefWidth="199.0" style="-fx-background-color: #ff4d4d;" text="Logout">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="-4.0" layoutY="76.0" mnemonicParsing="false" onAction="#addGrade" prefHeight="37.0" prefWidth="208.0" style="-fx-background-color: #ff4d4d;" text="Add Grade">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutY="39.0" mnemonicParsing="false" onAction="#home" prefHeight="37.0" prefWidth="199.0" style="-fx-background-color: #ff4d4d;" text="Home">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1.0" layoutY="335.0" mnemonicParsing="false" onAction="#showFailingStudents" prefHeight="37.0" prefWidth="199.0" style="-fx-background-color: #ff4d4d;" text="Show Failing Students">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="5.0" layoutY="372.0" mnemonicParsing="false" onAction="#queryGrades" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #ff4d4d;" text="Query Grades">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1.0" layoutY="150.0" mnemonicParsing="false" onAction="#deleteGradesTab" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #ff4d4d;" text="Delete Grades">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="5.0" layoutY="113.0" mnemonicParsing="false" onAction="#editGradesTab" prefHeight="37.0" prefWidth="199.0" style="-fx-background-color: #ff4d4d;" text="Edit Grades">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="1080.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="68.0" fitWidth="54.0" layoutX="832.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../uwi-logo.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="-15.0" layoutY="115.0" prefHeight="10.0" prefWidth="1722.0" />
+                  <Label layoutX="790.0" layoutY="85.0" text="Lecturer Dashboard">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="662.0" layoutY="155.0" text="Delete Grades on Student Record">
+                     <font>
+                        <Font name="SansSerif Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="studentID" layoutX="860.0" layoutY="274.0" />
+                  <Label layoutX="745.0" layoutY="276.0" text="Student ID">
+                     <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="gradePosition" layoutX="860.0" layoutY="331.0" />
+                  <Label layoutX="637.0" layoutY="333.0" text="Grade Position to delete">
+                     <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="806.0" layoutY="419.0" mnemonicParsing="false" onAction="#deleteGradeButton" style="-fx-background-color: #ff4d4d;" text="Delete Grade">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="739.0" layoutY="473.0" mnemonicParsing="false" onAction="#deleteEveryGrade" style="-fx-background-color: #ff4d4d;" text="Delete Every Grade for the Student">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
